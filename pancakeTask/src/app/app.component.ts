@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
   title = 'pancakeTask';
 
-  private data:any = []
+  public data:any = []
   constructor(private http: HttpClient) {
     
   }
