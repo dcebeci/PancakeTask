@@ -1,29 +1,92 @@
 <h1 >Pancake Task </h1>
 
-
 <div class="container">
-    <table class="table table-trapped">
-        <thead>
-            <tr>
-                 <th>ID</th>
-                <th>title</th>
-                <th>ID</th>
-                <th>ID</th>
-                <th>ID</th>
-                <th>ID</th>
-
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{data.id}}</td>
-                <td>{{data.title}}</td>
-                <td>{{data.price}}</td>
-                <td>{{data.images}}</td>
-                 
-            </tr>
-        </tbody> 
-    </table>
-
-
+    
+    <table mat-table [dataSource]="data" class="mat-elevation-z8 demo-table">
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>id.</th>
+          <td mat-cell *matCellDef="let element">{{element.id}}</td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef>title</th>
+          <td mat-cell *matCellDef="let element">{{element.title}}</td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef>description</th>
+          <td mat-cell *matCellDef="let element">{{element.description}}</td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef>price</th>
+          <td mat-cell *matCellDef="let element">{{element.price}}</td>
+        </ng-container>
+    
+         <!-- Symbol Column -->
+         <ng-container matColumnDef="discountPercentage">
+            <th mat-header-cell *matHeaderCellDef>discountPercentage</th>
+            <td mat-cell *matCellDef="let element">{{element.discountPercentage}}</td>
+          </ng-container>
+    
+           <!-- Symbol Column -->
+        <ng-container matColumnDef="rating">
+            <th mat-header-cell *matHeaderCellDef>rating</th>
+            <td mat-cell *matCellDef="let element">{{element.rating}}</td>
+          </ng-container>
+           <!-- Symbol Column -->
+        <ng-container matColumnDef="stock">
+            <th mat-header-cell *matHeaderCellDef>stock</th>
+            <td mat-cell *matCellDef="let element">{{element.stock}}</td>
+          </ng-container>
+           <!-- Symbol Column -->
+        <ng-container matColumnDef="brand">
+            <th mat-header-cell *matHeaderCellDef>brand</th>
+            <td mat-cell *matCellDef="let element">{{element.brand}}</td>
+          </ng-container>
+           <!-- Symbol Column -->
+        <ng-container matColumnDef="category">
+            <th mat-header-cell *matHeaderCellDef>category</th>
+            <td mat-cell *matCellDef="let element">{{element.category}}</td>
+          </ng-container>
+             <!-- Symbol Column -->
+        <ng-container matColumnDef="tumbnail">
+            <th mat-header-cell *matHeaderCellDef>tumbnail</th>
+            <td mat-cell *matCellDef="let element"><img src="{{element.tumbnail}}"></td>
+          </ng-container>
+             <!-- Symbol Column -->
+        <ng-container matColumnDef="images">
+            <th mat-header-cell *matHeaderCellDef>images</th>
+            <td mat-cell *matCellDef="let element"> <img src="{{element.images[0]}}"></td>
+          </ng-container>
+        
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+            mat-row
+            (click)="clickedRows.add(row)"
+            [class.demo-row-is-clicked]="clickedRows.has(row)"
+            *matRowDef="let row; columns: displayedColumns;"
+        ></tr>
+      </table>
+      
 </div>
+<div>
+    <h3>
+      Click Log
+    </h3>
+  </div>
+  
+  <div *ngIf="!clickedRows.size">
+    Clicked rows will be logged here
+  </div>
+  
+  <ul>
+    <li *ngFor="let clickedRow of clickedRows">
+      Clicked on {{clickedRow.title}}
+    </li>
+  </ul>
