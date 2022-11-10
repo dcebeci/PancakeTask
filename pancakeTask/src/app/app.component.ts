@@ -2,17 +2,14 @@ import { Component , OnInit, Inject} from '@angular/core';
 import { Product } from './models/product';
 import { ProductService } from './services/Product.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-export interface DialogData {
-  animal: string;
-  name: string;
-}
+import { PopUpComponent } from './pop-up/pop-up.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit,PopUpComponent {
   title = 'pancakeTask';
   displayedColumns: string[] = ['id', 'title', 'description', 'price', 'discountPercentage','rating','stock', 'brand','category','tumbnail','images'];
   clickedRows = new Set<Product>();
@@ -23,7 +20,7 @@ export class AppComponent implements OnInit{
     
   }
   openDialog(){
-    this.dialogRef.open(AppComponent);
+    this.dialogRef.open(PopUpComponent);
   }
   ngOnInit() {
     this.getData();
