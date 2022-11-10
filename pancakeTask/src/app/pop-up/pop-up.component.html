@@ -1,4 +1,23 @@
 <main>
-    <label for="text">Add some text</label>
-    <textarea rows="5" id="text"></textarea>
+  <div>
+    {{data1}}-{{data2}}
+  </div>
+    
+    
+    <input type="text" placeholder="Adet giriniz..."><br><br>
+    <button type="submit" value="Submit">Kaydet</button>
   </main>
+
+  <script>
+    const input = document.querySelector('input');
+ const storageKey = 'text';
+ const init = () => {
+  
+  input.value = localStorage.getItem(storageKey);
+  input.addEventListener('input', () => {
+  localStorage.setItem(storageKey, input.value);
+  });
+  }
+
+init();
+  </script>
