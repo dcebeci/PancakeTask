@@ -10,7 +10,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 export class PopUpComponent implements OnInit {
  
-  constructor(@Inject(MAT_DIALOG_DATA) public data) {
+   constructor(/*@Inject(MAT_DIALOG_DATA) public data*/) {
     
 
    }
