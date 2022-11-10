@@ -1,6 +1,11 @@
-import { Component , OnInit} from '@angular/core';
+import { Component , OnInit, Inject} from '@angular/core';
 import { Product } from './models/product';
 import { ProductService } from './services/Product.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+export interface DialogData {
+  animal: string;
+  name: string;
+}
 
 @Component({
   selector: 'app-root',
@@ -14,8 +19,11 @@ export class AppComponent implements OnInit{
    
   data: Product[] = [];
 
-  constructor(public productservice:ProductService) {
+  constructor(public productservice:ProductService, public dialogRef: MatDialog ) {
     
+  }
+  openDialog(){
+    this.dialogRef.open(AppComponent);
   }
   ngOnInit() {
     this.getData();

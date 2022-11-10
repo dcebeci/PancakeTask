@@ -1,7 +1,15 @@
+h1{
+  text-align: center;;
+}
 .demo-table {
     width: 100%;
+    height: 100%;
   }
-  
+  .mat-header-cell{
+    
+    text-align:justify;
+    
+  }
   .mat-row .mat-cell {
     border-bottom: 1px solid transparent;
     border-top: 1px solid transparent;
@@ -21,3 +29,7 @@
     height: 100px;
   }
   
+  .button{
+    border-radius: 1px;
+    color: blueviolet;
+  }
