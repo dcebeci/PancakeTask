@@ -19,3 +19,16 @@ export class PopUpComponent implements OnInit {
   }
 
 }
+
+// const textArea = document.querySelector('textarea');
+// const storageKey = 'text';
+// const init = () => {
+  
+//   textArea.value = localStorage.getItem(storageKey);
+  
+//   textArea.addEventListener('input', () => {
+//     localStorage.setItem(storageKey, textArea.value);
+//   });
+// }
+
+// init();
