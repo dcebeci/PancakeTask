@@ -9,9 +9,12 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 
 export class PopUpComponent implements OnInit {
- 
-   constructor(/*@Inject(MAT_DIALOG_DATA) public data*/) {
-    
+   data1;
+   data2;
+   constructor(@Inject(MAT_DIALOG_DATA) public data:any) {
+   this.data1 = data.id,
+   this.data2 = data.title
+   
 
    }
 
@@ -20,15 +23,3 @@ export class PopUpComponent implements OnInit {
 
 }
 
-// const textArea = document.querySelector('textarea');
-// const storageKey = 'text';
-// const init = () => {
-  
-//   textArea.value = localStorage.getItem(storageKey);
-  
-//   textArea.addEventListener('input', () => {
-//     localStorage.setItem(storageKey, textArea.value);
-//   });
-// }
-
-// init();
