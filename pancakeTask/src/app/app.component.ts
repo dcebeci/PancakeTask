@@ -5,6 +5,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { PopUpComponent } from './pop-up/pop-up.component';
 
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -20,6 +21,7 @@ export class AppComponent implements OnInit,PopUpComponent {
   constructor(public productservice:ProductService, public dialogRef: MatDialog ) {
     
   }
+  session:any;
   data1: any;
   data2:any;
   openDialog(id:number,title:string){
@@ -36,15 +38,22 @@ export class AppComponent implements OnInit,PopUpComponent {
   }
   ngOnInit() {
     this.getData();
+    this.saveData();
+    this.loadData();
   }
   getData(){
     this.productservice.getProducts().subscribe(db=>{
       this.data=db.products;
       console.log("data:",db)
     })
- 
-   
-    }
+  }
 
-    
+  saveData(){
+  let data = {id:[] ,title:[]};
+  localStorage.setItem('', JSON.stringify(data))
+  }
+  loadData(){ //toolip yerini kullanılabilir.
+  let data = localStorage.getItem('session');
+  
+}
 }
