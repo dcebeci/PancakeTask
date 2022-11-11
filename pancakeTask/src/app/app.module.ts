@@ -11,11 +11,13 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { PopUpComponent } from './pop-up/pop-up.component';
 import {MatButtonModule} from '@angular/material/button'; 
 import {MatTooltipModule} from '@angular/material/tooltip';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input'; 
 @NgModule({
   declarations: [
     AppComponent,
     PopUpComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatTableModule,
     MatDialogModule,
     MatButtonModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

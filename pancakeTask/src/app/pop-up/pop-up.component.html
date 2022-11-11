@@ -1,14 +1,22 @@
-<main>
+
   <div>
     {{data1}}-{{data2}}
   </div>
-    
-    
-    <input type="text" placeholder="Adet giriniz..."><br><br>
-    <button type="submit" value="Submit">Kaydet</button>
-  </main>
 
-  <script>
+  <ng-container >
+    <mat-form-field appearance="fill">
+      <mat-label>Satış Adedini Düzenleyin</mat-label>
+      <textarea matInput></textarea>
+    </mat-form-field>
+  </ng-container> 
+  
+    <div style="text-align:center">
+        <button mat-raised-button color="accent" type="Submit" (click)="saveData()">kaydet</button>  
+     </div>
+ 
+
+
+  <!-- <script>
     const input = document.querySelector('input');
  const storageKey = 'text';
  const init = () => {
@@ -19,5 +27,5 @@
   });
   }
 
-init();
-  </script>
+init(); -->
+  <!-- </script> -->
