@@ -1,31 +1,16 @@
 
   <div>
-    {{data1}}-{{data2}}
+    {{data}}-{{data}}
   </div>
 
   <ng-container >
     <mat-form-field appearance="fill">
       <mat-label>Satış Adedini Düzenleyin</mat-label>
-      <textarea matInput></textarea>
+      <textarea matInput name="aciklama" [(ngModel)]="Obj.aciklama"></textarea>
     </mat-form-field>
   </ng-container> 
   
     <div style="text-align:center">
-        <button mat-raised-button color="accent" type="Submit" (click)="saveData()">kaydet</button>  
+        <button mat-raised-button color="accent" type="Submit" (click)="saveData(data)">kaydet</button>  
      </div>
  
-
-
-  <!-- <script>
-    const input = document.querySelector('input');
- const storageKey = 'text';
- const init = () => {
-  
-  input.value = localStorage.getItem(storageKey);
-  input.addEventListener('input', () => {
-  localStorage.setItem(storageKey, input.value);
-  });
-  }
-
-init(); -->
-  <!-- </script> -->
