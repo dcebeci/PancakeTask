@@ -43,7 +43,7 @@ export class AppComponent implements OnInit {
     this.getData();
 
   }
-
+//
   getData() {
     this.productservice.getProducts().subscribe(db => {
       this.data = db.products;
