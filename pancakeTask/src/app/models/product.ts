@@ -1,4 +1,6 @@
 export interface Product{
+    satisAdedi: number;
+    aciklama:string;
     
     id: number;
     title: string;
@@ -11,6 +13,7 @@ export interface Product{
     category: string;
     tumbnail: string;
     images: string[];
+   
      
     
 }

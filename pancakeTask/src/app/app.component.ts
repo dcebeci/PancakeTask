@@ -13,18 +13,19 @@ import { PopUpComponent } from './pop-up/pop-up.component';
 })
 export class AppComponent implements OnInit {
   title = 'pancakeTask';
-  displayedColumns: string[] = ['id', 'title', 'description', 'price', 'discountPercentage','rating','stock', 'brand','category','thumbnail','images', 'Action'];
+  displayedColumns: string[] = ['id', 'title', 'description', 'price', 'discountPercentage','rating','stock', 'brand','category','thumbnail','images', 'Action', 'SatisAdedi'];
   clickedRows = new Set<Product>();
    
-  data: Product[] = [];
-  aciklama?:string;
-  constructor(public productservice:ProductService, public dialogRef: MatDialog ) {
-    
+   data: Product[] = [];
+ 
+
+  constructor(public productservice: ProductService, public dialogRef: MatDialog) {
+
   }
 
- 
   session: any;
-  openDialog(id:number,title:string){
+
+  openDialog(id: number, title: string) {
     let data2 = localStorage.getItem(id.toString());
     let data3 = data2 && JSON.parse(data2);
     this.dialogRef.open(PopUpComponent, {
@@ -33,16 +34,17 @@ export class AppComponent implements OnInit {
         title: title,
         satisAdedi: data3 ? data3.satisadedi:0,
         aciklama: data3 ? data3.aciklama:''
-        
       }
     });
 
   }
+
   ngOnInit() {
     this.getData();
-    // this.loadData();
+
   }
-  getData(){
+
+  getData() {
     this.productservice.getProducts().subscribe(db => {
       this.data = db.products;
       this.data.forEach(value => {
@@ -50,8 +52,10 @@ export class AppComponent implements OnInit {
         let d2 = d1 && JSON.parse(d1);
         value.satisAdedi = d2.satisadedi;
         value.aciklama = d2.aciklama;
+      })
+
     })
   }
- 
- 
+
+
 }
