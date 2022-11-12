@@ -21,16 +21,20 @@
 }
 
 
+
 h1{
   color: rgb(0, 0, 0);
-  text-align: center;;
+  text-align: center;
+  background-color: whitesmoke;
   
 }
 
   .mat-header-cell{
     color: white;
     background-color: brown;
-    text-align:justify;
+    text-align: justify;
+    padding-left: 10px;
+    padding-right: 10px;
     
   }
   .mat-row .mat-cell {

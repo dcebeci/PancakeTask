@@ -36,6 +36,13 @@ export class AppComponent implements OnInit {
         aciklama: data3 ? data3.aciklama:''
       }
     });
+    //popup kapandıktan sonra tooltip'e güncel veri gelmesi için
+    this.dialogRef.afterAllClosed.subscribe(result => {
+      this.getData();
+     });
+ 
+
+
 
   }
 
@@ -43,7 +50,7 @@ export class AppComponent implements OnInit {
     this.getData();
 
   }
-//
+  //LS kayıt
   getData() {
     this.productservice.getProducts().subscribe(db => {
       this.data = db.products;
