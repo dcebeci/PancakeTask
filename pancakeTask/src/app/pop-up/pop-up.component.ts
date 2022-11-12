@@ -10,13 +10,17 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 
 export class PopUpComponent implements OnInit {
-   
+   id;
+   title;
+   satis?:number;
    aciklama?:string ;
    
  
-   constructor(@Inject(MAT_DIALOG_DATA) public data:any) {
+   constructor(@Inject(MAT_DIALOG_DATA) public data:any,  private dialogRef: MatDialogRef<PopUpComponent>) {
    this.data = data.id,
    this.data = data.title
+   this.acikalama=data.aciklama
+   this.satisAdedi=data.satisAdedi;
    
  
    }
@@ -25,9 +29,9 @@ export class PopUpComponent implements OnInit {
     
   }
   saveData(id:number){
-    let data = { };
-    localStorage.setItem('', JSON.stringify(this.aciklama))
-    console.log(this.aciklama)
+    const data={satisadedi:this.satisAdedi,aciklama:this.acikalama}
+    localStorage.setItem(id.toString(), JSON.stringify(data));
+    this.dialogRef.close();
     }
 
 }
