@@ -11,26 +11,28 @@ import { PopUpComponent } from './pop-up/pop-up.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit,PopUpComponent {
+export class AppComponent implements OnInit {
   title = 'pancakeTask';
-  displayedColumns: string[] = ['id', 'title', 'description', 'price', 'discountPercentage','rating','stock', 'brand','category','tumbnail','images', 'Action'];
+  displayedColumns: string[] = ['id', 'title', 'description', 'price', 'discountPercentage','rating','stock', 'brand','category','thumbnail','images', 'Action'];
   clickedRows = new Set<Product>();
    
   data: Product[] = [];
-
+  aciklama?:string;
   constructor(public productservice:ProductService, public dialogRef: MatDialog ) {
     
   }
-  session:any;
-  data1: any;
-  data2:any;
+
+ 
+  session: any;
   openDialog(id:number,title:string){
-    console.log(id)
-    console.log(title)
-    this.dialogRef.open(PopUpComponent,{
+    let data2 = localStorage.getItem(id.toString());
+    let data3 = data2 && JSON.parse(data2);
+    this.dialogRef.open(PopUpComponent, {
       data: {
-        id:id,
-        title:title
+        id: id,
+        title: title,
+        satisAdedi: data3 ? data3.satisadedi:0,
+        aciklama: data3 ? data3.aciklama:''
         
       }
     });
@@ -38,22 +40,18 @@ export class AppComponent implements OnInit,PopUpComponent {
   }
   ngOnInit() {
     this.getData();
-    this.saveData();
-    this.loadData();
+    // this.loadData();
   }
   getData(){
-    this.productservice.getProducts().subscribe(db=>{
-      this.data=db.products;
-      console.log("data:",db)
+    this.productservice.getProducts().subscribe(db => {
+      this.data = db.products;
+      this.data.forEach(value => {
+        let d1 = localStorage.getItem(value.id.toString()) ?? '';
+        let d2 = d1 && JSON.parse(d1);
+        value.satisAdedi = d2.satisadedi;
+        value.aciklama = d2.aciklama;
     })
   }
-
-  saveData(){
-  let data = {id:[] ,title:[]};
-  localStorage.setItem('', JSON.stringify(data))
-  }
-  loadData(){ //toolip yerini kullanılabilir.
-  let data = localStorage.getItem('session');
-  
-}
+ 
+ 
 }

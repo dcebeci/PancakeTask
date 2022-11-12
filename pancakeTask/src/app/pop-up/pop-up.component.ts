@@ -10,23 +10,24 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 
 export class PopUpComponent implements OnInit {
-   data1;
-   data2;
- 
+   
+   aciklama?:string ;
+   
  
    constructor(@Inject(MAT_DIALOG_DATA) public data:any) {
-   this.data1 = data.id,
-   this.data2 = data.title
+   this.data = data.id,
+   this.data = data.title
+   
  
    }
 
   ngOnInit(): void {
     
   }
-  saveData(){
-    let data = {};
-    localStorage.setItem('', JSON.stringify(data))
-    console.log(data)
+  saveData(id:number){
+    let data = { };
+    localStorage.setItem('', JSON.stringify(this.aciklama))
+    console.log(this.aciklama)
     }
 
 }
