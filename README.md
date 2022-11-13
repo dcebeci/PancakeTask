@@ -1,4 +1,12 @@
 # PancakeTask
+Projeyi çalıştırmak için:
+--> cd pancakeTask 
+yazınız. Npm start veya ng Serve diyerek projeyi başlatabilirsiniz.
+![home](https://user-images.githubusercontent.com/56614064/201497070-ba19029e-02d7-4f26-9f72-b15259c1ae2e.png)
+![2](https://user-images.githubusercontent.com/56614064/201497074-e2fcb1db-b1db-43ea-927c-df8d47a14d38.png)
+![3](https://user-images.githubusercontent.com/56614064/201497075-59caeead-5592-41f3-9a0f-1d46f72a7d58.png)
+
+
 ## Proje Kriterleri
 - Aşağıda URL si verilen API den alacağınız products datasını bir tabloda göstermelisiniz.
   - API URL : https://dummyjson.com/products

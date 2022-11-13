@@ -1,0 +1,23 @@
+
+  <div>
+    {{id}}-{{title}}
+  </div>
+
+
+<mat-form-field class="example-full-width" appearance="fill">
+  <mat-label>Satış Adedini Düzenleyin</mat-label>
+  <input matInput placeholder="Satış Adedini Düzenleyin" [(ngModel)]="satisAdedi">
+</mat-form-field>
+
+
+  <ng-container >
+    <mat-form-field appearance="fill">
+      <mat-label>Açıklama Ekleyin</mat-label>
+      <textarea matInput [(ngModel)]="acikalama"></textarea>
+    </mat-form-field>
+  </ng-container>
+
+    <div style="text-align:center">
+        <button mat-raised-button color="accent" type="Submit" (click)="saveData(id)">Kaydet</button>
+     </div>
+

@@ -1,0 +1,134 @@
+<h1 >Pancake Task </h1>
+
+
+
+
+<div class="container">
+  
+    
+    <table mat-table [dataSource]="data" class="mat-elevation-z8 demo-table">
+      <ng-container matColumnDef="Action">
+        <th mat-header-cell *matHeaderCellDef> Sale</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-stroked-button color="warn"
+             (click)="openDialog(element.id,element.title)">
+            Edit
+          </button>
+        </td>
+      </ng-container>
+       
+      <div> <!-- id-->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>Id</th>
+          <td mat-cell *matCellDef="let element">{{element.id}}</td>
+        </ng-container>
+      </div>
+       
+        <div>
+          <!-- Title -->
+          <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef>Title</th>
+            <td mat-cell *matCellDef="let element">{{element.title}}</td>
+          </ng-container>
+        </div>
+
+        <!-- Desc-->
+        <div>
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef>Description</th>
+          <td mat-cell *matCellDef="let element">{{element.description}}</td>
+        </ng-container>
+      </div>
+
+      <div><!-- Price -->
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef>Price</th>
+          <td mat-cell *matCellDef="let element">{{element.price}}</td>
+        </ng-container>
+      </div>
+
+        <div><!-- Discount-->
+          <ng-container matColumnDef="discountPercentage">
+             <th mat-header-cell *matHeaderCellDef>% Discount </th>
+             <td mat-cell *matCellDef="let element">{{element.discountPercentage}}</td>
+           </ng-container>
+        </div>
+
+        <div>
+           <!-- Rating -->
+        <ng-container matColumnDef="rating">
+          <th mat-header-cell *matHeaderCellDef> Rating</th>
+          <td mat-cell *matCellDef="let element">{{element.rating}}</td>
+        </ng-container>
+        </div>
+       
+    
+         <div>
+          <!-- Stock -->
+          <ng-container matColumnDef="stock">
+          <th mat-header-cell *matHeaderCellDef> Stock</th>
+          <td mat-cell *matCellDef="let element">{{element.stock}}</td>
+          </ng-container>
+           </div>
+          <div>
+              <!-- Brand-->
+          <ng-container matColumnDef="brand">
+          <th mat-header-cell *matHeaderCellDef>Brand</th>
+          <td mat-cell *matCellDef="let element">{{element.brand}}</td>
+          </ng-container>
+          </div>
+         <td>
+            <!-- Category -->
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef>Category</th>
+          <td mat-cell *matCellDef="let element">{{element.category}}</td>
+        </ng-container>
+         </td>
+         <div> 
+            <!-- Thumnail -->
+          <ng-container matColumnDef="thumbnail">
+              <th mat-header-cell *matHeaderCellDef>Thumbnail</th>
+              <td mat-cell *matCellDef="let element"><img src="{{element.thumbnail}}"></td>
+            </ng-container></div>
+         <div>     <!-- Images-->
+          <ng-container matColumnDef="images">
+              <th mat-header-cell *matHeaderCellDef>Images</th>
+              <td mat-cell *matCellDef="let element"> <img src="{{element.images[2]}}"></td>
+            </ng-container>
+          </div>
+        
+          <!-- Tooltip-->
+          <div>
+          <td>
+            <ng-container matColumnDef="SatisAdedi">
+              <th mat-header-cell *matHeaderCellDef>Sale Count</th>
+              <td mat-cell [matTooltip]="element.aciklama" *matCellDef="let element">{{element.satisAdedi}}</td>
+            </ng-container>
+
+          </td>
+          
+          </div>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr
+                mat-row
+                (click)="clickedRows.add(row)"
+                [class.demo-row-is-clicked]="clickedRows.has(row)"
+                *matRowDef="let row; columns: displayedColumns;"
+            ></tr>
+    
+       
+        
+       
+      </table>
+      
+</div>
+
+
+    
+
+
+  
+
+
+
